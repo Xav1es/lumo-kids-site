@@ -1,54 +1,205 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Privacy Policy – Lumo Kids</title>
-<style>
-body { margin:0; font-family:-apple-system,BlinkMacSystemFont,sans-serif; background:#fff; color:#222; }
-.container { max-width:900px; margin:auto; padding:48px 20px; line-height:1.55; }
-h1 { margin:0 0 10px; font-size:34px; }
-h2 { margin-top:28px; font-size:20px; }
-p, li { font-size:16px; opacity:.9; }
-a { color:#6b5cff; }
-.small { opacity:.65; font-size:14px; }
-.card { background:#f6f7ff; border:1px solid #e7e9ff; padding:14px 16px; border-radius:14px; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privacy Policy — Lumo Kids</title>
+  <meta name="description" content="Privacy Policy for Lumo Kids: Play and Learn" />
+  <style>
+    :root{
+      --bg1:#ffffff;
+      --bg2: rgba(168, 124, 255, .14);
+      --card: rgba(255,255,255,.86);
+      --stroke: rgba(255,255,255,.85);
+      --text: rgba(0,0,0,.86);
+      --muted: rgba(0,0,0,.62);
+      --accent: #a87cff;
+      --accent2:#6cc7ff;
+      --shadow: rgba(0,0,0,.10);
+      --radius: 22px;
+      --radius2: 26px;
+      --max: 980px;
+      --font: ui-rounded, system-ui, -apple-system, "SF Pro Rounded", "SF Pro Display", Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(900px 420px at 20% -10%, var(--bg2), transparent 60%),
+        radial-gradient(900px 420px at 90% 10%, rgba(108,199,255,.14), transparent 60%),
+        linear-gradient(to bottom, #fff, rgba(0,0,0,.03), #fff);
+      min-height:100vh;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 16px 40px;}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:10px 14px;
+      background: rgba(255,255,255,.72);
+      border:1px solid var(--stroke);
+      border-radius: 18px;
+      box-shadow: 0 10px 24px var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:.2px;}
+    .logo-dot{width:12px; height:12px; border-radius:999px; background: var(--accent);}
+    .nav{display:flex; gap:10px; flex-wrap:wrap}
+    .nav a{
+      text-decoration:none;
+      font-weight:800;
+      font-size:13px;
+      padding:8px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.75);
+      border:1px solid rgba(255,255,255,.85);
+    }
+    .nav a:hover{transform: translateY(-1px)}
+    .card{
+      margin-top:18px;
+      background: var(--card);
+      border:1px solid var(--stroke);
+      border-radius: var(--radius2);
+      box-shadow: 0 18px 40px rgba(0,0,0,.10);
+      overflow:hidden;
+    }
+    .card-inner{padding:22px;}
+    h1{margin:0 0 6px; font-size:28px; line-height:1.1; letter-spacing:-.2px;}
+    .sub{margin:0 0 16px; color:var(--muted); font-weight:650;}
+    h2{margin:18px 0 8px; font-size:18px}
+    p, li{color: rgba(0,0,0,.76); line-height:1.6; font-weight:550;}
+    ul{margin:8px 0 0 18px}
+    .pill-row{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 4px}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.78);
+      border:1px solid rgba(255,255,255,.88);
+      font-weight:800;
+      font-size:12px;
+      color: rgba(0,0,0,.72);
+    }
+    .dot{width:10px; height:10px; border-radius:999px; background: var(--accent2);}
+    .footer{
+      margin-top:14px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      color: rgba(0,0,0,.55);
+      font-weight:650;
+      font-size:12px;
+      padding: 0 4px;
+    }
+    .footer a{text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+    .hr{
+      height:1px; background: rgba(0,0,0,.06);
+      margin: 16px 0 0;
+    }
+    .note{
+      margin-top:10px;
+      padding:12px 14px;
+      border-radius: 16px;
+      background: rgba(168,124,255,.10);
+      border: 1px solid rgba(168,124,255,.22);
+      color: rgba(0,0,0,.74);
+      font-weight:650;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-  <p><a href="index.html">← Back</a></p>
-  <h1>Privacy Policy</h1>
-  <p class="small">Last updated: 2026-02-11</p>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <span class="logo-dot"></span>
+        <span>Lumo Kids</span>
+      </div>
+      <div class="nav">
+        <a href="./index.html">Home</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="./terms.html">Terms</a>
+        <a href="mailto:support@lumo.kids">Contact</a>
+      </div>
+    </div>
 
-  <div class="card">
-    <p><strong>Lumo Kids: Play and Learn</strong> is designed for young children and is intended to be safe and family-friendly.</p>
-    <p>This app does not require an account and does not ask children to enter personal information.</p>
+    <div class="card">
+      <div class="card-inner">
+        <h1>Privacy Policy</h1>
+        <p class="sub">Last updated: <span id="d"></span></p>
+
+        <div class="pill-row">
+          <span class="pill"><span class="dot"></span> No account</span>
+          <span class="pill"><span class="dot" style="background:var(--accent)"></span> No ads</span>
+          <span class="pill"><span class="dot" style="background:#74d18a"></span> Kid-friendly</span>
+        </div>
+
+        <div class="note">
+          Lumo Kids: Play and Learn is designed for young children. We aim to collect as little data as possible.
+        </div>
+
+        <h2>Overview</h2>
+        <p>
+          This Privacy Policy explains how <b>Lumo Kids: Play and Learn</b> ("the App") handles information.
+          The App is intended for children and does not require creating an account.
+        </p>
+
+        <h2>Information We Collect</h2>
+        <p><b>We do not collect personally identifiable information</b> such as names, emails, phone numbers, or precise location.</p>
+
+        <h2>Analytics</h2>
+        <p>
+          If we enable analytics in the future, we will only use it to understand app performance (e.g., crashes, basic usage)
+          and to improve the experience. We will not use analytics for advertising or tracking across apps.
+        </p>
+
+        <h2>In-App Purchases</h2>
+        <p>
+          The App may offer <b>one-time purchases</b>. Purchases are processed by Apple. We do not receive your payment
+          details (such as card information).
+        </p>
+
+        <h2>Children’s Privacy</h2>
+        <p>
+          The App is designed for kids and follows a minimal-data approach. We do not request personal data from children.
+          If you believe we may have collected personal information by mistake, please contact us and we will delete it.
+        </p>
+
+        <h2>Third-Party Services</h2>
+        <p>
+          The App may rely on Apple services (e.g., App Store, In-App Purchases). These services may collect information
+          as described in Apple’s policies.
+        </p>
+
+        <h2>Data Security</h2>
+        <p>
+          We take reasonable steps to protect the App and any limited data that may exist (e.g., technical logs).
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          If you have questions about this Privacy Policy, contact us at:
+          <b><a href="mailto:support@lumo.kids">support@lumo.kids</a></b>
+        </p>
+
+        <div class="hr"></div>
+        <div class="footer">
+          <span>© <span id="y"></span> Lumo Kids</span>
+          <span>
+            <a href="./index.html">Home</a> ·
+            <a href="./terms.html">Terms</a>
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <h2>Information We Collect</h2>
-  <p>We do not collect personally identifiable information such as name, address, phone number, or email inside the app.</p>
-
-  <h2>Analytics</h2>
-  <p>If you enable analytics tools (e.g., Firebase Analytics / AppsFlyer), they may collect limited technical data such as device information, app version, and general usage events to help improve the app.</p>
-  <p>This data is used for app performance and product improvement and is not used to identify a child.</p>
-
-  <h2>Purchases</h2>
-  <p>The app may offer one-time in-app purchases (non-consumable unlocks). Purchases are processed by Apple. We do not receive your payment details.</p>
-
-  <h2>Advertising</h2>
-  <p>Lumo Kids does not show third-party ads.</p>
-
-  <h2>Data Sharing</h2>
-  <p>We do not sell personal data. If analytics are used, data may be processed by the analytics provider under their terms.</p>
-
-  <h2>Children’s Privacy</h2>
-  <p>This app is intended for families and young children. Parents/guardians should supervise children’s use of devices and purchases.</p>
-
-  <h2>Contact</h2>
-  <p>If you have questions, contact us at: <a href="mailto:support@lumo.kids">support@lumo.kids</a></p>
-
-  <p class="small">© 2026 Lumo Kids</p>
-</div>
+  <script>
+    const now = new Date();
+    document.getElementById("y").textContent = now.getFullYear();
+    document.getElementById("d").textContent = now.toISOString().slice(0,10);
+  </script>
 </body>
 </html>
