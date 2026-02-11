@@ -1,86 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lumo Kids – Play and Learn</title>
-<style>
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    background: linear-gradient(180deg, #ffffff, #f4f6ff);
-    color: #222;
-    text-align: center;
-}
-
-.container {
-    max-width: 800px;
-    margin: auto;
-    padding: 60px 20px;
-}
-
-h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
-}
-
-p {
-    font-size: 18px;
-    opacity: 0.8;
-}
-
-.buttons {
-    margin-top: 40px;
-}
-
-a.button {
-    display: inline-block;
-    margin: 10px;
-    padding: 14px 26px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.2s;
-}
-
-.primary {
-    background: #8e7cff;
-    color: white;
-}
-
-.secondary {
-    background: #ffffff;
-    border: 1px solid #ddd;
-    color: #333;
-}
-
-a.button:hover {
-    transform: translateY(-2px);
-}
-
-footer {
-    margin-top: 80px;
-    font-size: 14px;
-    opacity: 0.6;
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lumo Kids: Play and Learn</title>
+  <meta name="description" content="Calm, playful learning games for kids 1–5. Offline, ad-free, and parent-friendly." />
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
+  <div class="wrap">
+    <header class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Lumo Kids</h1>
+      </div>
+      <nav class="navlinks">
+        <a href="./privacy.html">Privacy</a>
+        <a href="./terms.html">Terms</a>
+        <a href="./support.html">Support</a>
+      </nav>
+    </header>
 
-<div class="container">
-    <h1>Lumo Kids</h1>
-    <p>Fun Learning Games for Little Kids</p>
+    <main class="hero">
+      <div class="heroGrid">
+        <div>
+          <span class="kicker">🌿 Calm learning • 🧸 Kids 1–5 • ✈️ Offline</span>
+          <h2 class="title">Play & Learn<br/>with Lumo Kids</h2>
+          <p class="sub">
+            A gentle learning app with simple games that help children build attention,
+            memory, vocabulary, and coordination — in a safe, ad-free space.
+          </p>
 
-    <div class="buttons">
-        <a href="privacy.html" class="button secondary">Privacy Policy</a>
-        <a href="terms.html" class="button secondary">Terms of Service</a>
-        <a href="mailto:support@lumo.kids" class="button primary">Contact Support</a>
-    </div>
+          <div class="pills">
+            <span class="pill">✅ Offline activities</span>
+            <span class="pill">🧠 Early skills</span>
+            <span class="pill">🦊 Animal learning</span>
+            <span class="pill">🔒 No ads</span>
+          </div>
 
-    <footer>
-        © 2026 Lumo Kids. All rights reserved.
+          <div class="ctaRow">
+            <a class="btn btnPrimary" href="https://apps.apple.com/us/app/lumo-kids-play-and-learn/id6758888747" target="_blank" rel="noopener">
+               View on the App Store
+            </a>
+            <a class="btn btnGhost" href="./support.html">Contact support</a>
+          </div>
+        </div>
+
+        <div class="heroArt">
+          <div class="glassFade"></div>
+          <!-- Put your image here: /assets/hero.png -->
+          <img src="./assets/hero.png" alt="Lumo Kids characters" />
+        </div>
+      </div>
+    </main>
+
+    <section class="section">
+      <div class="card">
+        <h3>Find</h3>
+        <p>Listen and tap the right picture — perfect for attention and word recognition.</p>
+      </div>
+      <div class="card">
+        <h3>Pairs</h3>
+        <p>Match animal cards to train memory, focus, and simple logic.</p>
+      </div>
+      <div class="card">
+        <h3>Shapes (Drag & Drop)</h3>
+        <p>Drag pictures into the right places to develop coordination and spatial thinking.</p>
+      </div>
+      <div class="card">
+        <h3>Colouring</h3>
+        <p>Calm colouring and tracing-style activities for creativity and fine motor skills.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>© <span id="y"></span> Lumo Kids</div>
+      <div>
+        <a class="underline" href="./privacy.html">Privacy</a> •
+        <a class="underline" href="./terms.html">Terms</a> •
+        <a class="underline" href="./support.html">Support</a>
+      </div>
     </footer>
-</div>
+  </div>
 
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
