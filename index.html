@@ -127,6 +127,35 @@
       overflow:hidden;
     }
 
+    .game{
+  position:relative;
+  overflow:hidden;
+}
+
+/* маленький зверёк */
+.game-mascot{
+  position:absolute;
+  right:12px;
+  bottom:10px;
+  width:70px;
+  height:auto;
+  pointer-events:none;
+  opacity:0.95;
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,.18));
+  transition:transform .3s ease;
+}
+
+.game:hover .game-mascot{
+  transform:translateY(-4px);
+}
+
+/* мобильная версия */
+@media (max-width: 880px){
+  .game-mascot{
+    width:56px;
+  }
+}
+
     .hero-inner{
       display:grid;
       grid-template-columns: 1.25fr .75fr;
@@ -542,6 +571,7 @@
       <li>Attention and focus</li>
       <li>Word recognition</li>
     </ul>
+    <img src="find-animal.png" class="123" alt="">
   </div>
 
   <div class="game pairs">
@@ -554,6 +584,7 @@
       <li>Pattern recognition</li>
       <li>Logical thinking</li>
     </ul>
+    <img src="pairs-animal.png" class="123" alt="">
   </div>
 
   <div class="game drag">
@@ -566,6 +597,7 @@
       <li>Fine motor skills</li>
       <li>Problem solving</li>
     </ul>
+    <img src="drag-animal.png" class="123" alt="">
   </div>
 
   <div class="game drawing">
@@ -579,6 +611,7 @@
       <li>Pre-writing skills</li>
       <li>Focus and calm concentration</li>
     </ul>
+    <img src="drawing-animal.png" class="123" alt="">
   </div>
 </div>
 
