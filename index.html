@@ -399,6 +399,12 @@
   border-radius:999px;
   background:#6cc7ff;
 }
+    .support-links{
+  margin-top:18px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
   </style>
 </head>
 
@@ -556,49 +562,33 @@
       </section>
 
       <section class="card" id="support" style="margin-top:12px">
-        <h2>Support & Contact</h2>
-        <p>
-          Questions or feedback? Email us at
-          <a href="mailto:support@lumo.kids">support@lumo.kids</a>.
-        </p>
-        <p style="margin-top:10px; color:var(--muted2); font-size:13px">
-          Privacy and Terms pages can be added here next (we can make <code>privacy.html</code> and <code>terms.html</code> in the same repo).
-        </p>
-      </section>
+  <h2>Support & Contact</h2>
+
+  <p>
+    Questions or feedback? Email us at
+    <a href="mailto:support@lumo.kids">support@lumo.kids</a>.
+  </p>
+
+  <div class="support-links">
+    <a class="footer-pill" href="./privacy.html">
+      <span class="dot"></span>
+      Privacy Policy
+    </a>
+
+    <a class="footer-pill" href="./terms.html">
+      <span class="dot" style="background:#a87cff"></span>
+      Terms of Use
+    </a>
+
+    <a class="footer-pill" href="https://apps.apple.com/us/app/lumo-kids-play-and-learn/id6758888747" target="_blank" rel="noopener">
+      <span class="dot" style="background:#6cc7ff"></span>
+      View on App Store
+    </a>
+  </div>
+</section>
     </main>
 
-    <footer class="site-footer">
-  <div class="footer-inner">
     
-    <div class="footer-left">
-      <div class="footer-brand">
-        <span class="logo-dot"></span>
-        <span>Lumo Kids</span>
-      </div>
-      <div class="footer-copy">
-        © <span id="year"></span> Lumo Kids. All rights reserved.
-      </div>
-    </div>
-
-    <div class="footer-links">
-      <a class="footer-pill" href="./privacy.html">
-        <span class="dot"></span>
-        Privacy Policy
-      </a>
-
-      <a class="footer-pill" href="./terms.html">
-        <span class="dot" style="background:#a87cff"></span>
-        Terms of Use
-      </a>
-
-      <a class="footer-pill" href="mailto:support@lumo.kids">
-        <span class="dot" style="background:#74d18a"></span>
-        Contact support@lumo.kids
-      </a>
-    </div>
-
-  </div>
-</footer>
   </div>
 
   <script>
