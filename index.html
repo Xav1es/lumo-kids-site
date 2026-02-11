@@ -310,20 +310,6 @@
       pointer-events:none;
     }
 
-    footer{
-      margin-top: 18px;
-      padding: 18px 6px 8px;
-      color: rgba(18,18,18,.60);
-      font-size: 13px;
-      display:flex;
-      gap: 12px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-    }
-    footer a{color: rgba(18,18,18,.72); text-decoration:none}
-    footer a:hover{text-decoration:underline}
-
     /* anchors sections */
     section{scroll-margin-top: 18px}
 
@@ -334,6 +320,85 @@
       .game{grid-column: span 12}
       nav{justify-content:flex-start}
     }
+    .site-footer{
+  margin-top:60px;
+  padding:30px 16px 40px;
+}
+
+.footer-inner{
+  max-width:980px;
+  margin:0 auto;
+  padding:20px;
+  border-radius:26px;
+  background:rgba(255,255,255,.86);
+  border:1px solid rgba(255,255,255,.85);
+  box-shadow:0 18px 40px rgba(0,0,0,.10);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:18px;
+}
+
+.footer-left{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:900;
+  font-size:15px;
+}
+
+.footer-copy{
+  font-size:12px;
+  font-weight:600;
+  color:rgba(0,0,0,.55);
+}
+
+.footer-links{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.footer-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 14px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:800;
+  font-size:13px;
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(255,255,255,.88);
+  color:rgba(0,0,0,.75);
+  transition:all .2s ease;
+}
+
+.footer-pill:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 18px rgba(0,0,0,.12);
+}
+
+.logo-dot{
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  background:#6cc7ff;
+}
+
+.dot{
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  background:#6cc7ff;
+}
   </style>
 </head>
 
@@ -502,18 +567,42 @@
       </section>
     </main>
 
-    <footer>
-      <div>© <span id="y"></span> Lumo Kids</div>
-      <div style="display:flex;gap:14px;flex-wrap:wrap">
-        <a href="#support">Contact</a>
-        <a href="#safety">Safety</a>
-        <a href="https://apps.apple.com/us/app/lumo-kids-play-and-learn/id6758888747" target="_blank" rel="noopener">App Store</a>
+    <footer class="site-footer">
+  <div class="footer-inner">
+    
+    <div class="footer-left">
+      <div class="footer-brand">
+        <span class="logo-dot"></span>
+        <span>Lumo Kids</span>
       </div>
-    </footer>
+      <div class="footer-copy">
+        © <span id="year"></span> Lumo Kids. All rights reserved.
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <a class="footer-pill" href="./privacy.html">
+        <span class="dot"></span>
+        Privacy Policy
+      </a>
+
+      <a class="footer-pill" href="./terms.html">
+        <span class="dot" style="background:#a87cff"></span>
+        Terms of Use
+      </a>
+
+      <a class="footer-pill" href="mailto:support@lumo.kids">
+        <span class="dot" style="background:#74d18a"></span>
+        Contact support@lumo.kids
+      </a>
+    </div>
+
+  </div>
+</footer>
   </div>
 
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
