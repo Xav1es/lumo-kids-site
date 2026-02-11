@@ -3,82 +3,517 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lumo Kids: Play and Learn</title>
-  <meta name="description" content="Calm, playful learning games for kids 1–5. Offline, ad-free, and parent-friendly." />
-  <link rel="stylesheet" href="./styles.css" />
+  <title>Lumo Kids — Play and Learn</title>
+  <meta name="description" content="A calm and playful learning app for ages 1–5. 130+ offline animals and objects. Find, Pairs, Drag & Drop, and Drawing games." />
+
+  <style>
+    :root{
+      --bg1:#fbfbff;
+      --bg2:#f4f0ff;
+      --card:rgba(255,255,255,.78);
+      --border:rgba(255,255,255,.9);
+      --text:#121212;
+      --muted:rgba(18,18,18,.68);
+      --muted2:rgba(18,18,18,.55);
+      --shadow:0 18px 50px rgba(0,0,0,.12);
+      --shadow2:0 10px 28px rgba(0,0,0,.10);
+      --radius:22px;
+      --radius2:26px;
+
+      /* brand-ish */
+      --accent:#B78CFF;   /* purple */
+      --accent2:#8AE6C6;  /* mint */
+      --accent3:#FFD38A;  /* warm */
+      --accent4:#8CCBFF;  /* blue */
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-rounded, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 420px at 50% -80px, rgba(183,140,255,.30), transparent 60%),
+        radial-gradient(820px 420px at 10% 15%, rgba(138,230,198,.26), transparent 60%),
+        radial-gradient(820px 420px at 90% 20%, rgba(255,211,138,.22), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      overflow-x:hidden;
+    }
+
+    /* cute floating shapes */
+    .bg-doodles{
+      position:fixed; inset:0; pointer-events:none; z-index:-1;
+      opacity:.55;
+    }
+
+    .wrap{
+      max-width: 1080px;
+      padding: 22px 18px 40px;
+      margin: 0 auto;
+    }
+
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
+      padding: 10px 4px 18px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none; color:var(--text);
+    }
+    .logo{
+      width:38px; height:38px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(183,140,255,.95), rgba(140,203,255,.85));
+      box-shadow: 0 10px 22px rgba(183,140,255,.25);
+      display:grid; place-items:center;
+      color:white; font-weight:900;
+      letter-spacing:.2px;
+      user-select:none;
+    }
+    .brand b{font-size:16px}
+    .brand span{display:block; font-size:12px; color:var(--muted2); margin-top:2px}
+
+    nav{
+      display:flex; gap:10px; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    nav a{
+      font-size:13px;
+      color:var(--muted);
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.55);
+      border:1px solid rgba(255,255,255,.7);
+    }
+    nav a:hover{color:var(--text)}
+
+    .hero{
+      position:relative;
+      border-radius: var(--radius2);
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      overflow:hidden;
+    }
+
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:center;
+    }
+
+    h1{
+      margin:0 0 8px;
+      font-size: 34px;
+      line-height:1.06;
+      letter-spacing:-.2px;
+    }
+    .subhead{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.5;
+      max-width: 62ch;
+    }
+
+    .pill-row{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin: 14px 0 18px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 9px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.85);
+      color: rgba(18,18,18,.74);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:99px; flex:0 0 auto;
+      background: var(--accent);
+      box-shadow: 0 6px 14px rgba(183,140,255,.25);
+    }
+
+    .cta-row{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin-top: 12px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 18px;
+      border: 0;
+      cursor:pointer;
+      text-decoration:none;
+      font-weight: 900;
+      font-size: 14px;
+      letter-spacing:.2px;
+      transition: transform .08s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn:active{transform: translateY(1px)}
+    .btn.primary{
+      color: white;
+      background: linear-gradient(135deg, rgba(183,140,255,1), rgba(140,203,255,.95));
+      box-shadow: 0 16px 30px rgba(183,140,255,.24);
+    }
+    .btn.ghost{
+      color: rgba(18,18,18,.78);
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.9);
+    }
+
+    .hero-art{
+      position:relative;
+      height: 220px;
+      border-radius: 22px;
+      background:
+        radial-gradient(380px 220px at 40% 40%, rgba(255,211,138,.32), transparent 60%),
+        radial-gradient(380px 220px at 65% 45%, rgba(138,230,198,.26), transparent 60%),
+        radial-gradient(380px 220px at 50% 60%, rgba(183,140,255,.22), transparent 60%),
+        rgba(255,255,255,.50);
+      border: 1px solid rgba(255,255,255,.80);
+      overflow:hidden;
+      box-shadow: var(--shadow2);
+    }
+    .hero-art img{
+      position:absolute;
+      inset:auto 0 0 0;
+      width:100%;
+      height:100%;
+      object-fit: contain;
+      padding: 12px 10px 6px;
+      filter: drop-shadow(0 18px 28px rgba(0,0,0,.18));
+    }
+    /* fade bottom a bit to keep it soft */
+    .hero-art::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, transparent 0%, transparent 55%, rgba(255,255,255,.55) 100%);
+      pointer-events:none;
+    }
+
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+
+    .card{
+      grid-column: span 6;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.86);
+      box-shadow: 0 14px 34px rgba(0,0,0,.10);
+      padding: 16px;
+      overflow:hidden;
+    }
+    .card h2{
+      margin:0 0 8px;
+      font-size: 18px;
+      letter-spacing:-.1px;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size: 14px;
+      line-height:1.55;
+    }
+
+    .list{
+      margin: 10px 0 0;
+      padding: 0;
+      list-style:none;
+      display:grid;
+      gap: 8px;
+    }
+    .li{
+      display:flex; gap:10px; align-items:flex-start;
+      color: var(--muted);
+      font-size: 14px;
+      line-height:1.45;
+    }
+    .check{
+      width:22px; height:22px; border-radius: 9px;
+      background: rgba(138,230,198,.30);
+      border: 1px solid rgba(138,230,198,.55);
+      display:grid; place-items:center;
+      flex:0 0 auto;
+      margin-top: 1px;
+    }
+
+    .games{
+      grid-column: span 12;
+      padding: 16px;
+    }
+    .games h2{font-size:20px}
+    .game-grid{
+      margin-top: 12px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+    .game{
+      grid-column: span 6;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(255,255,255,.85);
+      box-shadow: 0 14px 30px rgba(0,0,0,.09);
+      padding: 16px;
+      position:relative;
+      overflow:hidden;
+      min-height: 148px;
+    }
+    .game b{font-size:16px}
+    .game small{
+      display:block;
+      margin-top:6px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.55;
+    }
+    .skills{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.55;
+    }
+    .badge{
+      position:absolute;
+      top: 12px; right: 12px;
+      font-size:12px;
+      font-weight: 900;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(255,255,255,.88);
+      color: rgba(18,18,18,.75);
+    }
+    .game::before{
+      content:"";
+      position:absolute; inset:-40px -60px auto auto;
+      width: 180px; height: 180px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(183,140,255,.22), transparent 60%),
+                  radial-gradient(circle at 60% 60%, rgba(140,203,255,.18), transparent 60%);
+      transform: rotate(10deg);
+      pointer-events:none;
+    }
+
+    footer{
+      margin-top: 18px;
+      padding: 18px 6px 8px;
+      color: rgba(18,18,18,.60);
+      font-size: 13px;
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+    footer a{color: rgba(18,18,18,.72); text-decoration:none}
+    footer a:hover{text-decoration:underline}
+
+    /* anchors sections */
+    section{scroll-margin-top: 18px}
+
+    @media (max-width: 880px){
+      .hero-inner{grid-template-columns:1fr}
+      .hero-art{height: 220px}
+      .card{grid-column: span 12}
+      .game{grid-column: span 12}
+      nav{justify-content:flex-start}
+    }
+  </style>
 </head>
+
 <body>
+  <!-- simple svg doodles -->
+  <svg class="bg-doodles" width="100%" height="100%" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <filter id="blur10"><feGaussianBlur stdDeviation="10"/></filter>
+    </defs>
+    <circle cx="140" cy="120" r="70" fill="rgba(183,140,255,.18)" filter="url(#blur10)"/>
+    <circle cx="1060" cy="160" r="90" fill="rgba(138,230,198,.14)" filter="url(#blur10)"/>
+    <circle cx="960" cy="660" r="120" fill="rgba(255,211,138,.14)" filter="url(#blur10)"/>
+    <rect x="80" y="560" width="210" height="120" rx="40" fill="rgba(140,203,255,.12)" filter="url(#blur10)"/>
+  </svg>
+
   <div class="wrap">
-    <header class="nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <h1>Lumo Kids</h1>
-      </div>
-      <nav class="navlinks">
-        <a href="./privacy.html">Privacy</a>
-        <a href="./terms.html">Terms</a>
-        <a href="./support.html">Support</a>
+    <header>
+      <a class="brand" href="#">
+        <div class="logo">L</div>
+        <div>
+          <b>Lumo Kids</b>
+          <span>Play and Learn</span>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#games">Games</a>
+        <a href="#safety">Safety</a>
+        <a href="#support">Support</a>
       </nav>
     </header>
 
-    <main class="hero">
-      <div class="heroGrid">
-        <div>
-          <span class="kicker">🌿 Calm learning • 🧸 Kids 1–5 • ✈️ Offline</span>
-          <h2 class="title">Play & Learn<br/>with Lumo Kids</h2>
-          <p class="sub">
-            A gentle learning app with simple games that help children build attention,
-            memory, vocabulary, and coordination — in a safe, ad-free space.
+    <main>
+      <section class="hero" aria-label="Hero">
+        <div class="hero-inner">
+          <div>
+            <h1>Calm learning for little kids.</h1>
+            <p class="subhead">
+              Lumo Kids is a calm and playful learning app designed to help babies and young children learn through interaction,
+              exploration, and gentle guidance — with simple, engaging games made for ages <b>1–5</b>.
+            </p>
+
+            <div class="pill-row">
+              <div class="pill"><span class="dot"></span> 130+ offline animals & objects</div>
+              <div class="pill"><span class="dot" style="background:var(--accent2)"></span> Ad-free</div>
+              <div class="pill"><span class="dot" style="background:var(--accent4)"></span> Works anywhere</div>
+              <div class="pill"><span class="dot" style="background:var(--accent3)"></span> Gentle voice guidance</div>
+            </div>
+
+            <div class="cta-row">
+              <a class="btn primary" href="https://apps.apple.com/us/app/lumo-kids-play-and-learn/id6758888747" target="_blank" rel="noopener">
+                 Download on the App Store
+              </a>
+              <a class="btn ghost" href="#games">See games</a>
+            </div>
+
+            <p class="subhead" style="margin-top:12px; font-size:13px; color:var(--muted2)">
+              A key feature is the large offline library — available anytime, anywhere, even without an internet connection.
+            </p>
+          </div>
+
+          <div class="hero-art" aria-label="Hero artwork">
+            <!-- Put your image in the repo and match the filename -->
+            <!-- Example: assets/hero.png -->
+            <img src="Group%20427320588.png" alt="Cute animals illustration" />
+          </div>
+        </div>
+      </section>
+
+      <section class="grid" aria-label="Info">
+        <div class="card">
+          <h2>What children learn</h2>
+          <ul class="list">
+            <li class="li"><span class="check">✓</span> Recognize animals, objects, and everyday items</li>
+            <li class="li"><span class="check">✓</span> Explore a rich offline collection of over 130 animals</li>
+            <li class="li"><span class="check">✓</span> Develop attention and visual focus</li>
+            <li class="li"><span class="check">✓</span> Improve memory and matching skills</li>
+            <li class="li"><span class="check">✓</span> Learn words naturally through voice guidance</li>
+            <li class="li"><span class="check">✓</span> Practice hand-eye coordination</li>
+            <li class="li"><span class="check">✓</span> Build confidence through positive feedback</li>
+          </ul>
+        </div>
+
+        <div class="card" id="safety">
+          <h2>Designed with parents in mind</h2>
+          <p>
+            Lumo Kids is safe, calm, and thoughtfully designed for young children.
+            Offline content means you can use it at home or on the go.
+          </p>
+          <ul class="list" style="margin-top:12px">
+            <li class="li"><span class="check" style="background:rgba(183,140,255,.18);border-color:rgba(183,140,255,.35)">✓</span> Ad-free experience</li>
+            <li class="li"><span class="check" style="background:rgba(140,203,255,.18);border-color:rgba(140,203,255,.35)">✓</span> Offline library for travel</li>
+            <li class="li"><span class="check" style="background:rgba(255,211,138,.18);border-color:rgba(255,211,138,.35)">✓</span> Simple, child-friendly UI</li>
+          </ul>
+        </div>
+
+        <div class="card games" id="games">
+          <h2>Games included</h2>
+          <p style="margin-top:6px">
+            Four simple games that build early cognitive skills: listening, memory, coordination, and early pre-writing.
           </p>
 
-          <div class="pills">
-            <span class="pill">✅ Offline activities</span>
-            <span class="pill">🧠 Early skills</span>
-            <span class="pill">🦊 Animal learning</span>
-            <span class="pill">🔒 No ads</span>
+          <div class="game-grid">
+            <div class="game">
+              <div class="badge">Find</div>
+              <b>Find Game</b>
+              <small>Children listen to a spoken word and find the matching picture on the screen.</small>
+              <ul class="skills">
+                <li>Listening comprehension</li>
+                <li>Vocabulary building</li>
+                <li>Attention and focus</li>
+                <li>Word recognition</li>
+              </ul>
+            </div>
+
+            <div class="game">
+              <div class="badge">Pairs</div>
+              <b>Pair Game</b>
+              <small>A classic matching game where children find pairs of animal cards.</small>
+              <ul class="skills">
+                <li>Visual memory</li>
+                <li>Concentration</li>
+                <li>Pattern recognition</li>
+                <li>Logical thinking</li>
+              </ul>
+            </div>
+
+            <div class="game">
+              <div class="badge">Drag</div>
+              <b>Drag &amp; Drop Game</b>
+              <small>Children drag pictures into the correct places.</small>
+              <ul class="skills">
+                <li>Hand-eye coordination</li>
+                <li>Spatial awareness</li>
+                <li>Fine motor skills</li>
+                <li>Problem solving</li>
+              </ul>
+            </div>
+
+            <div class="game">
+              <div class="badge">Drawing</div>
+              <b>Drawing Game</b>
+              <small>Children colour animals, letters, numbers, and shapes using simple guided lines.</small>
+              <ul class="skills">
+                <li>Fine motor control</li>
+                <li>Hand-eye coordination</li>
+                <li>Shape and symbol recognition</li>
+                <li>Pre-writing skills</li>
+                <li>Focus and calm concentration</li>
+              </ul>
+            </div>
           </div>
 
-          <div class="ctaRow">
-            <a class="btn btnPrimary" href="https://apps.apple.com/us/app/lumo-kids-play-and-learn/id6758888747" target="_blank" rel="noopener">
-               View on the App Store
+          <div class="cta-row" style="margin-top:14px">
+            <a class="btn primary" href="https://apps.apple.com/us/app/lumo-kids-play-and-learn/id6758888747" target="_blank" rel="noopener">
+               Open in App Store
             </a>
-            <a class="btn btnGhost" href="./support.html">Contact support</a>
+            <a class="btn ghost" href="#support">Need help?</a>
           </div>
         </div>
+      </section>
 
-        <div class="heroArt">
-          <div class="glassFade"></div>
-          <!-- Put your image here: /assets/hero.png -->
-          <img src="./assets/hero.png" alt="Lumo Kids characters" />
-        </div>
-      </div>
+      <section class="card" id="support" style="margin-top:12px">
+        <h2>Support & Contact</h2>
+        <p>
+          Questions or feedback? Email us at
+          <a href="mailto:support@lumo.kids">support@lumo.kids</a>.
+        </p>
+        <p style="margin-top:10px; color:var(--muted2); font-size:13px">
+          Privacy and Terms pages can be added here next (we can make <code>privacy.html</code> and <code>terms.html</code> in the same repo).
+        </p>
+      </section>
     </main>
 
-    <section class="section">
-      <div class="card">
-        <h3>Find</h3>
-        <p>Listen and tap the right picture — perfect for attention and word recognition.</p>
-      </div>
-      <div class="card">
-        <h3>Pairs</h3>
-        <p>Match animal cards to train memory, focus, and simple logic.</p>
-      </div>
-      <div class="card">
-        <h3>Shapes (Drag & Drop)</h3>
-        <p>Drag pictures into the right places to develop coordination and spatial thinking.</p>
-      </div>
-      <div class="card">
-        <h3>Colouring</h3>
-        <p>Calm colouring and tracing-style activities for creativity and fine motor skills.</p>
-      </div>
-    </section>
-
-    <footer class="footer">
+    <footer>
       <div>© <span id="y"></span> Lumo Kids</div>
-      <div>
-        <a class="underline" href="./privacy.html">Privacy</a> •
-        <a class="underline" href="./terms.html">Terms</a> •
-        <a class="underline" href="./support.html">Support</a>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a href="#support">Contact</a>
+        <a href="#safety">Safety</a>
+        <a href="https://apps.apple.com/us/app/lumo-kids-play-and-learn/id6758888747" target="_blank" rel="noopener">App Store</a>
       </div>
     </footer>
   </div>
