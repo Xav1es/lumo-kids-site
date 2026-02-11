@@ -19,6 +19,12 @@
       --shadow2:0 10px 28px rgba(0,0,0,.10);
       --radius:22px;
       --radius2:26px;
+      
+      --appBlue:#8CCBFF;
+      --appGreen:#8AE6C6;
+      --appOrange:#FFD38A;
+      --appPurple:#B78CFF;
+      --appBody:#F2B6C6;
 
       /* brand-ish */
       --accent:#B78CFF;   /* purple */
@@ -40,7 +46,29 @@
         linear-gradient(180deg, var(--bg1), var(--bg2));
       overflow-x:hidden;
     }
+.game.find {
+  background:
+    radial-gradient(220px 120px at 80% 20%, rgba(255,255,255,.4), transparent 60%),
+    linear-gradient(135deg, var(--appOrange), rgba(255,255,255,.75));
+}
 
+.game.pairs {
+  background:
+    radial-gradient(220px 120px at 80% 20%, rgba(255,255,255,.4), transparent 60%),
+    linear-gradient(135deg, var(--appGreen), rgba(255,255,255,.75));
+}
+
+.game.drag {
+  background:
+    radial-gradient(220px 120px at 80% 20%, rgba(255,255,255,.4), transparent 60%),
+    linear-gradient(135deg, var(--appBody), rgba(255,255,255,.75));
+}
+
+.game.drawing {
+  background:
+    radial-gradient(220px 120px at 80% 20%, rgba(255,255,255,.4), transparent 60%),
+    linear-gradient(135deg, var(--appBlue), rgba(255,255,255,.75));
+}
     /* cute floating shapes */
     .bg-doodles{
       position:fixed; inset:0; pointer-events:none; z-index:-1;
@@ -404,7 +432,8 @@
   display:flex;
   gap:12px;
   flex-wrap:wrap;
-  justify-content:center;   /* ← ВОТ ЭТО ГЛАВНОЕ */
+  justify-content:center;
+  width:100%;
 }
   </style>
 </head>
@@ -503,55 +532,55 @@
           </p>
 
           <div class="game-grid">
-            <div class="game">
-              <div class="badge">Find</div>
-              <b>Find Game</b>
-              <small>Children listen to a spoken word and find the matching picture on the screen.</small>
-              <ul class="skills">
-                <li>Listening comprehension</li>
-                <li>Vocabulary building</li>
-                <li>Attention and focus</li>
-                <li>Word recognition</li>
-              </ul>
-            </div>
+  <div class="game find">
+    <div class="badge">Find</div>
+    <b>Find Game</b>
+    <small>Children listen to a spoken word and find the matching picture on the screen.</small>
+    <ul class="skills">
+      <li>Listening comprehension</li>
+      <li>Vocabulary building</li>
+      <li>Attention and focus</li>
+      <li>Word recognition</li>
+    </ul>
+  </div>
 
-            <div class="game">
-              <div class="badge">Pairs</div>
-              <b>Pair Game</b>
-              <small>A classic matching game where children find pairs of animal cards.</small>
-              <ul class="skills">
-                <li>Visual memory</li>
-                <li>Concentration</li>
-                <li>Pattern recognition</li>
-                <li>Logical thinking</li>
-              </ul>
-            </div>
+  <div class="game pairs">
+    <div class="badge">Pairs</div>
+    <b>Pair Game</b>
+    <small>A classic matching game where children find pairs of animal cards.</small>
+    <ul class="skills">
+      <li>Visual memory</li>
+      <li>Concentration</li>
+      <li>Pattern recognition</li>
+      <li>Logical thinking</li>
+    </ul>
+  </div>
 
-            <div class="game">
-              <div class="badge">Drag</div>
-              <b>Drag &amp; Drop Game</b>
-              <small>Children drag pictures into the correct places.</small>
-              <ul class="skills">
-                <li>Hand-eye coordination</li>
-                <li>Spatial awareness</li>
-                <li>Fine motor skills</li>
-                <li>Problem solving</li>
-              </ul>
-            </div>
+  <div class="game drag">
+    <div class="badge">Drag</div>
+    <b>Drag &amp; Drop Game</b>
+    <small>Children drag pictures into the correct places.</small>
+    <ul class="skills">
+      <li>Hand-eye coordination</li>
+      <li>Spatial awareness</li>
+      <li>Fine motor skills</li>
+      <li>Problem solving</li>
+    </ul>
+  </div>
 
-            <div class="game">
-              <div class="badge">Drawing</div>
-              <b>Drawing Game</b>
-              <small>Children colour animals, letters, numbers, and shapes using simple guided lines.</small>
-              <ul class="skills">
-                <li>Fine motor control</li>
-                <li>Hand-eye coordination</li>
-                <li>Shape and symbol recognition</li>
-                <li>Pre-writing skills</li>
-                <li>Focus and calm concentration</li>
-              </ul>
-            </div>
-          </div>
+  <div class="game drawing">
+    <div class="badge">Drawing</div>
+    <b>Drawing Game</b>
+    <small>Children colour animals, letters, numbers, and shapes using simple guided lines.</small>
+    <ul class="skills">
+      <li>Fine motor control</li>
+      <li>Hand-eye coordination</li>
+      <li>Shape and symbol recognition</li>
+      <li>Pre-writing skills</li>
+      <li>Focus and calm concentration</li>
+    </ul>
+  </div>
+</div>
 
           <div class="cta-row" style="margin-top:14px">
             <a class="btn primary" href="https://apps.apple.com/us/app/lumo-kids-play-and-learn/id6758888747" target="_blank" rel="noopener">
@@ -586,9 +615,5 @@
 
     
   </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
