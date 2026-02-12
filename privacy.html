@@ -113,12 +113,12 @@
 <body>
   <div class="wrap">
     <div class="topbar">
-      <div class="brand">
-        <span class="logo-dot"></span>
-        <span>Lumo Kids</span>
-      </div>
+      <a class="brand" href="./index.html" style="text-decoration:none;">
+  <span class="logo-dot"></span>
+  <span>Lumo Kids</span>
+</a>
       <div class="nav">
-        <a href="./index.html">Home</a>
+        
         <a href="./privacy.html">Privacy</a>
         <a href="./terms.html">Terms</a>
         <a href="mailto:support@lumo.kids">Contact</a>
@@ -128,13 +128,6 @@
     <div class="card">
       <div class="card-inner">
         <h1>Privacy Policy</h1>
-        <p class="sub">Last updated: <span id="d"></span></p>
-
-        <div class="pill-row">
-          <span class="pill"><span class="dot"></span> No account</span>
-          <span class="pill"><span class="dot" style="background:var(--accent)"></span> No ads</span>
-          <span class="pill"><span class="dot" style="background:#74d18a"></span> Kid-friendly</span>
-        </div>
 
         <div class="note">
           Lumo Kids: Play and Learn is designed for young children. We aim to collect as little data as possible.
@@ -199,7 +192,6 @@
   <script>
     const now = new Date();
     document.getElementById("y").textContent = now.getFullYear();
-    document.getElementById("d").textContent = now.toISOString().slice(0,10);
   </script>
 </body>
 </html>
