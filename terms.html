@@ -66,22 +66,9 @@
     }
     .card-inner{padding:22px;}
     h1{margin:0 0 6px; font-size:28px; line-height:1.1; letter-spacing:-.2px;}
-    .sub{margin:0 0 16px; color:var(--muted); font-weight:650;}
     h2{margin:18px 0 8px; font-size:18px}
     p, li{color: rgba(0,0,0,.76); line-height:1.6; font-weight:550;}
     ul{margin:8px 0 0 18px}
-    .pill-row{display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 4px}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:9px 12px;
-      border-radius:999px;
-      background: rgba(255,255,255,.78);
-      border:1px solid rgba(255,255,255,.88);
-      font-weight:800;
-      font-size:12px;
-      color: rgba(0,0,0,.72);
-    }
-    .dot{width:10px; height:10px; border-radius:999px; background: var(--accent2);}
     .footer{
       margin-top:14px;
       display:flex;
@@ -95,89 +82,71 @@
     }
     .footer a{text-decoration:none}
     .footer a:hover{text-decoration:underline}
-    .hr{height:1px; background: rgba(0,0,0,.06); margin: 16px 0 0;}
-    .note{
-      margin-top:10px;
-      padding:12px 14px;
-      border-radius: 16px;
-      background: rgba(108,199,255,.10);
-      border: 1px solid rgba(108,199,255,.22);
-      color: rgba(0,0,0,.74);
-      font-weight:650;
+    .hr{
+      height:1px; background: rgba(0,0,0,.06);
+      margin: 16px 0 0;
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="topbar">
-      <div class="brand">
+      <a class="brand" href="./index.html" style="text-decoration:none;">
         <span class="logo-dot"></span>
         <span>Lumo Kids</span>
-      </div>
+      </a>
       <div class="nav">
-        <a href="./index.html">Home</a>
         <a href="./privacy.html">Privacy</a>
-        <a href="./terms.html">Terms</a>
-        <a href="mailto:support@lumo.kids">Contact</a>
       </div>
     </div>
 
     <div class="card">
       <div class="card-inner">
         <h1>Terms of Use</h1>
-        <p class="sub">Last updated: <span id="d"></span></p>
 
-        <div class="pill-row">
-          <span class="pill"><span class="dot"></span> Family-friendly</span>
-          <span class="pill"><span class="dot" style="background:var(--accent)"></span> One-time purchases</span>
-          <span class="pill"><span class="dot" style="background:#74d18a"></span> No ads</span>
-        </div>
-
-        <div class="note">
-          By using the App, you agree to these Terms. If you do not agree, please do not use the App.
-        </div>
-
-        <h2>1. The App</h2>
+        <h2>Acceptance of Terms</h2>
         <p>
-          <b>Lumo Kids: Play and Learn</b> provides educational games for young children. The App is intended to be used
-          under adult supervision.
+          By downloading or using <b>Lumo Kids: Play and Learn</b> ("the App"), you agree to these Terms of Use.
+          If you do not agree, please do not use the App.
         </p>
 
-        <h2>2. Purchases</h2>
+        <h2>Use of the App</h2>
         <p>
-          The App may offer optional <b>one-time in-app purchases</b>. All payments are processed by Apple.
-          Access to purchased content is subject to Apple’s systems and policies.
+          The App is designed for young children and their parents. You agree to use the App only for lawful purposes
+          and in accordance with these Terms.
         </p>
 
-        <h2>3. No Advertising</h2>
-        <p>The App does not show third-party ads.</p>
-
-        <h2>4. Acceptable Use</h2>
-        <p>You agree not to:</p>
-        <ul>
-          <li>reverse engineer or attempt to extract the source code of the App;</li>
-          <li>use the App in any unlawful way;</li>
-          <li>interfere with the App’s operation or security.</li>
-        </ul>
-
-        <h2>5. Intellectual Property</h2>
+        <h2>Intellectual Property</h2>
         <p>
-          The App, its design, and content are protected by applicable laws. You may use the App for personal,
-          non-commercial purposes only.
+          All content in the App, including illustrations, sounds, text, and design, is owned by Lumo Kids
+          and is protected by intellectual property laws. You may not copy, modify, distribute,
+          or reproduce any part of the App without permission.
         </p>
 
-        <h2>6. Disclaimer</h2>
+        <h2>In-App Purchases</h2>
         <p>
-          The App is provided “as is”. We do our best to keep it stable and helpful, but we do not guarantee it will be
-          error-free or available at all times.
+          The App may offer optional one-time purchases. All payments are processed by Apple.
+          We do not collect or store payment information.
         </p>
 
-        <h2>7. Changes</h2>
+        <h2>Limitation of Liability</h2>
         <p>
-          We may update these Terms from time to time. Continued use of the App after changes means you accept the updated Terms.
+          The App is provided "as is". We are not liable for any damages arising from the use
+          or inability to use the App.
         </p>
 
-        <h2>8. Contact</h2>
+        <h2>Changes to the App</h2>
+        <p>
+          We may update or improve the App at any time without prior notice.
+        </p>
+
+        <h2>Changes to These Terms</h2>
+        <p>
+          We may update these Terms from time to time. Continued use of the App
+          after changes means you accept the updated Terms.
+        </p>
+
+        <h2>Contact</h2>
         <p>
           If you have questions about these Terms, contact us at:
           <b><a href="mailto:support@lumo.kids">support@lumo.kids</a></b>
@@ -198,7 +167,6 @@
   <script>
     const now = new Date();
     document.getElementById("y").textContent = now.getFullYear();
-    document.getElementById("d").textContent = now.toISOString().slice(0,10);
   </script>
 </body>
 </html>
